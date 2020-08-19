@@ -1,3 +1,5 @@
+@import './variables.scss';
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -5,9 +7,24 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: #f5f9fc;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+.app {
+  max-width: 70vw;
+  margin: 0 auto;
+  box-shadow: 0 -12px 22px rgba($gray-main, .05), 0 12px 22px rgba($gray-main, .1);
+  border-radius: 5px;
+  min-height: 50vh;
+  max-height: 75vh;
+  margin-top: 5rem;
+
+  &__content {
+    display: flex;
+  }
 }

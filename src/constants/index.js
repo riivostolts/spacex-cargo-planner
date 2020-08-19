@@ -1,0 +1,2 @@
+export const FETCH_SHIPMENTS = 'FETCH_SHIPMENTS';
+export const FETCH_SHIPMENT = 'FETCH_SHIPMENT';

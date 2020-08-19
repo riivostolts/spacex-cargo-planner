@@ -1,0 +1,13 @@
+.header {
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 -12px 22px rgba(82, 87, 104, .05), 0 12px 22px rgba(82, 87, 104, .1);
+
+  &__brand {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #333;
+  }
+}

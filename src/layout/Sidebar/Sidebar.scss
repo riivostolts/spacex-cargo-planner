@@ -1,0 +1,12 @@
+@import '../../variables.scss';
+
+.sidebar {
+  flex: .2;
+  padding: 0 2rem;
+  margin: 1rem 0;
+  border-right: 1px solid rgba($gray-main, .07);
+  min-height: 50vh;
+  max-height: calc(75vh - 10rem);
+  overflow-y: scroll;
+  background-color: #495057;
+}
