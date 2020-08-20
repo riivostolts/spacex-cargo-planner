@@ -7,6 +7,9 @@
   border-right: 1px solid rgba($gray-main, .07);
   min-height: 50vh;
   max-height: calc(75vh - 10rem);
-  overflow-y: scroll;
-  background-color: #495057;
+  // background-color: #495057;
+
+  &--scroll {
+    overflow-y: scroll;
+  }
 }

@@ -5,27 +5,12 @@ import './Sidebar.scss';
 
 const Sidebar = () => {
   const shipments = useSelector(state => state.shipments);
-  /* useEffect(() => {
-
-  }, []) */
-
-  // componentDidMount() {
-  //   this.props.loadAllShipments();
-  // }
 
   return (
-    <div className="sidebar">
+    <div className={`sidebar ${ shipments.shipments.length > 0 ? 'sidebar--scroll' : '' }`}>
       <Shipments shipments={shipments} />
     </div>
   )
 }
 
 export default Sidebar;
-
-/* const mapStateToProps = ({ shipments }) => {
-  return {
-    shipments
-  }
-} */
-
-// export default connect( mapStateToProps, { loadAllShipments } )( Sidebar )

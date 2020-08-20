@@ -1,8 +1,8 @@
-import React from 'react'
-import { Button } from 'semantic-ui-react'
+import React from 'react';
+import { Button } from 'semantic-ui-react';
 import { useDispatch, useSelector } from 'react-redux';
 import { loadAllShipments } from '../../actions/';
-import './Header.scss'
+import './Header.scss';
 
 const Header = () => {
   const dispatch = useDispatch();
@@ -28,6 +28,6 @@ const Header = () => {
       </div>
     </div>
   )
-}
+};
 
-export default Header
+export default Header;
