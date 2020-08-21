@@ -1,12 +1,21 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { useHistory } from "react-router-dom";
 import { loadShipmentDetails } from '../actions';
-import CargoBoxes from './CarboBoxes';
+import CargoBoxes from './CargoBoxes';
 
 const ShipmentDetail = (props) => {
   const { name, email, boxes } = useSelector(state => state.shipments.selectedShipment);
+  const { shipments } = useSelector(state => state.shipments);
   const dispatch = useDispatch();
+  const history = useHistory();
   const { id } = props.match.params;
+
+  useEffect(() => {
+    if (shipments.length === 0) {
+      history.push('/');
+    }
+  }, []);
 
   useEffect(() => {
     dispatch(loadShipmentDetails(id));

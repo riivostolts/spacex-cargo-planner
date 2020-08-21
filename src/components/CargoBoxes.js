@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Form } from 'semantic-ui-react';
 import { saveShipmentChanges } from '../actions';
 
-const CarboBoxes = ({ boxes: originalBoxes, shipmentId }) => {
+const CargoBoxes = ({ boxes: originalBoxes, shipmentId }) => {
   const dispatch = useDispatch();
   // Separate values by space
   // const boxes = originalBoxes.split(',').join(', ');
@@ -54,4 +54,4 @@ const CarboBoxes = ({ boxes: originalBoxes, shipmentId }) => {
   )
 }
 
-export default CarboBoxes;
+export default CargoBoxes;
