@@ -1,9 +1,9 @@
-import { FETCH_SHIPMENTS, FETCH_SHIPMENT, SAVE_SHIPMENT_CHANGES } from '../constants/';
-import findShipmentById from '../utils/findShipmentById';
+import { FETCH_SHIPMENTS, FETCH_SHIPMENT, SAVE_SHIPMENT_CHANGES, SET_FILTER_VALUE } from '../constants/';
 
 const initialState = {
   shipments: [],
-  selectedShipment: {}
+  selectedShipment: {},
+  filterValue: ''
 };
 
 export default (state = initialState, action) => {
@@ -29,6 +29,10 @@ export default (state = initialState, action) => {
             return shipment;
           }
         })
+      });
+    case SET_FILTER_VALUE:
+      return Object.assign({}, state, {
+        filterValue: action.payload
       });
     default:
       return state;

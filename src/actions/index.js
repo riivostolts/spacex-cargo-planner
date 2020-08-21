@@ -1,4 +1,4 @@
-import { FETCH_SHIPMENTS, FETCH_SHIPMENT, SAVE_SHIPMENT_CHANGES } from '../constants/';
+import { FETCH_SHIPMENTS, FETCH_SHIPMENT, SAVE_SHIPMENT_CHANGES, SET_FILTER_VALUE } from '../constants/';
 import findShipmentById from '../utils/findShipmentById';
 import shipmentsJson from '../shipments.json';
 
@@ -22,5 +22,12 @@ export const saveShipmentChanges = (id, cargo) => {
       id,
       cargo
     }
+  }
+}
+
+export const setFilterValue = (val) => {
+  return {
+    type: SET_FILTER_VALUE,
+    payload: val
   }
 }

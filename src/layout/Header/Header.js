@@ -2,6 +2,7 @@ import React from 'react';
 import { Button } from 'semantic-ui-react';
 import { useDispatch, useSelector } from 'react-redux';
 import { loadAllShipments } from '../../actions/';
+import Filter from '../../components/Filter';
 import './Header.scss';
 
 const Header = () => {
@@ -20,7 +21,7 @@ const Header = () => {
   return (
     <div className="header">
       <div className="header__brand">Cargo Planner</div>
-      <div className="header__search"><input type="text"/></div>
+      <Filter />
       <div className="header__actions">
         <Button onClick={handleLoad} content="Load" primary/>
         <Button onClick={handleSave} content="Save" secondary/>
