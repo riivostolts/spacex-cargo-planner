@@ -31,11 +31,11 @@ const CargoBoxes = ({ boxes: originalBoxes, shipmentId }) => {
     setCargoBoxes(boxes);
   }, [ boxes ])
 
-  useEffect(() => {
+  const handleShipmentChanges = () => {
     if (cargoBoxes !== boxes) {
       dispatch(saveShipmentChanges(id, cargoBoxes));
     }
-  }, [ shipmentId ]);
+  }
 
   const handleInputChange = (e) => {
     setCargoBoxes(e.target.value);
@@ -47,7 +47,7 @@ const CargoBoxes = ({ boxes: originalBoxes, shipmentId }) => {
       <Form>
         <Form.Field>
           <label>Cargo boxes</label>
-          <input value={cargoBoxes} onChange={handleInputChange} />
+          <input value={cargoBoxes} onChange={handleInputChange} onBlur={handleShipmentChanges} />
         </Form.Field>
       </Form>
     </div>
