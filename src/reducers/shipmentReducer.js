@@ -17,22 +17,19 @@ export default (state = initialState, action) => {
         selectedShipment: action.payload
       });
     case SAVE_SHIPMENT_CHANGES:
-
-      if (findShipmentById(state.shipments, action.payload.id)) {
-        return Object.assign({}, state, {
-          shipments: state.shipments.map(shipment => {
-            // Find the correct one and change the "boxes" value
-            if (shipment.id === action.payload.id) {
-              return {
-                ...shipment,
-                boxes: action.payload.cargo
-              }
-            } else {
-              return shipment;
+      return Object.assign({}, state, {
+        shipments: state.shipments.map(shipment => {
+          // Find the correct one and change the "boxes" value
+          if (shipment.id === action.payload.id) {
+            return {
+              ...shipment,
+              boxes: action.payload.cargo
             }
-          })
-        });
-      }
+          } else {
+            return shipment;
+          }
+        })
+      });
     default:
       return state;
   }
