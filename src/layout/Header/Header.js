@@ -8,7 +8,6 @@ const Header = () => {
   const dispatch = useDispatch();
   const state = useSelector(state => state);
 
-  // Loads all shipments from shipment.json
   const handleLoad = () => {
     dispatch(loadAllShipments());
   }

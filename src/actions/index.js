@@ -1,33 +1,23 @@
-import { FETCH_SHIPMENTS, FETCH_SHIPMENT, ADD_TO_CHANGED_SHIPMENTS } from '../constants/';
+import { FETCH_SHIPMENTS, FETCH_SHIPMENT, SAVE_SHIPMENT_CHANGES } from '../constants/';
 import findShipmentById from '../utils/findShipmentById';
-import shipments from '../shipments.json';
+import shipmentsJson from '../shipments.json';
 
-export const loadAllShipments = () => {
+export const loadAllShipments = (source = shipmentsJson) => {
   return {
     type: FETCH_SHIPMENTS,
-    payload: shipments
+    payload: source
   }
 }
 
 export const loadShipmentDetails = (id) => (dispatch, getState) => {
-  let selectedShipment;
-  const { changedShipments } = getState().shipments;
-  if (findShipmentById(changedShipments, id)) {
-    selectedShipment = findShipmentById(changedShipments, id);
-  } else if (sessionStorage.getItem('cargoPlannerState')) {
-    // If session storage exists, go and take shipments from there, otherwise get them from the shipments.json
-    const { shipments: savedShipments } = JSON.parse(sessionStorage.getItem('cargoPlannerState')).shipments;
-    selectedShipment = findShipmentById(savedShipments, id);
-  } else {
-    selectedShipment = findShipmentById(shipments, id);
-  }
-
+  const shipments = getState().shipments.shipments.length ? getState().shipments.shipments : shipmentsJson;
+  const selectedShipment = findShipmentById(shipments, id);
   dispatch({ type: FETCH_SHIPMENT, payload: selectedShipment })
 }
 
-export const addToChangedShipments = (id, cargo) => {
+export const saveShipmentChanges = (id, cargo) => {
   return {
-    type: ADD_TO_CHANGED_SHIPMENTS,
+    type: SAVE_SHIPMENT_CHANGES,
     payload: {
       id,
       cargo
