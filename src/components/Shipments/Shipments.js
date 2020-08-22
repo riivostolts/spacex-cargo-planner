@@ -1,7 +1,8 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-import slugify from '../utils/slugify';
+import slugify from '../../utils/slugify';
+import './Shipments.scss';
 
 const Shipments = ({ shipments: { shipments } }) => {
   const { filterValue } = useSelector(state => state.shipments);
@@ -14,7 +15,7 @@ const Shipments = ({ shipments: { shipments } }) => {
 
   return (
     <div>
-      <ul className="shipments-list">
+      <ul className="shipment-list">
         {
           filteredShipments.map(({ name, id }) => {
             return <li key={id} className="shipment-list__item"><NavLink to={`/company/${slugify(id)}`}>{name}</NavLink></li>

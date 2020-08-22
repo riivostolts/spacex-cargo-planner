@@ -1,6 +1,6 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-import Shipments from '../../components/Shipments';
+import Shipments from '../../components/Shipments/Shipments';
 import './Sidebar.scss';
 
 const Sidebar = () => {

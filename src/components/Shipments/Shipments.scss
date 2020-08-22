@@ -1,0 +1,16 @@
+.shipment-list {
+  list-style-type: none;
+  padding-left: 0;
+
+  &__item {
+    padding: .5rem 0;
+
+    a {
+      font-weight: bold;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+}
