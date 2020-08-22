@@ -17,7 +17,7 @@ const Filter = () => {
     const typingTimeout = setTimeout(() => {
       dispatch(setFilterValue(filterValue));
       setIsLoading(false);
-    }, 500);
+    }, 300);
 
     return () => {
       clearTimeout(typingTimeout);

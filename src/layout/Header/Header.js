@@ -2,16 +2,19 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { Button } from 'semantic-ui-react';
-import { loadAllShipments } from '../../actions/';
+import { loadAllShipments, loadShipmentDetails } from '../../actions/';
 import Filter from '../../components/Filter';
 import './Header.scss';
 
 const Header = () => {
   const dispatch = useDispatch();
   const state = useSelector(state => state);
+  const { id: selectedShipmentId } = state.shipments.selectedShipment;
 
   const handleLoad = () => {
     dispatch(loadAllShipments());
+    // This is for overriding the cargo boxes value for the selected shipment
+    dispatch(loadShipmentDetails(selectedShipmentId));
   }
 
   // Saves the state to session storage
