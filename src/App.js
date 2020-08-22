@@ -11,12 +11,14 @@ import 'semantic-ui-css/semantic.min.css';
 const App = () => {
   const dispatch = useDispatch();
 
-  useEffect(() => {
+  const loadFromSaveStorage = () => {
     if (sessionStorage.getItem('cargoPlannerState')) {
       const { shipments } = JSON.parse(sessionStorage.getItem('cargoPlannerState')).shipments;
       dispatch(loadAllShipments(shipments));
     }
-  }, [])
+  };
+
+  useEffect(loadFromSaveStorage, []);
 
   return (
     <BrowserRouter>

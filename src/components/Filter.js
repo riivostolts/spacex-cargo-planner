@@ -13,7 +13,7 @@ const Filter = () => {
     setIsLoading(true);
   }
 
-  useEffect(() => {
+  const handleFilterValueChange = () => {
     const typingTimeout = setTimeout(() => {
       dispatch(setFilterValue(filterValue));
       setIsLoading(false);
@@ -22,7 +22,9 @@ const Filter = () => {
     return () => {
       clearTimeout(typingTimeout);
     }
-  }, [ filterValue ]);
+  };
+
+  useEffect(handleFilterValueChange, [ filterValue ]);
 
   return (
     <div className="header__search">

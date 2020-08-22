@@ -11,15 +11,19 @@ const ShipmentDetail = (props) => {
   const history = useHistory();
   const { id } = props.match.params;
 
-  useEffect(() => {
+  const redirectToHome = () => {
     if (shipments.length === 0) {
       history.push('/');
     }
-  }, []);
+  }
 
-  useEffect(() => {
+  useEffect(redirectToHome, []);
+
+  const fetchShipmentDetails = () => {
     dispatch(loadShipmentDetails(id));
-  }, [ id ]);
+  };
+
+  useEffect(fetchShipmentDetails, [ id ]);
 
   return (
     <div className="shipment">

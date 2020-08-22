@@ -19,6 +19,7 @@ const CargoBoxes = ({ boxes: originalBoxes, shipmentId }) => {
       if (!isNaN(parseFloat(number))) {
         return true;
       }
+      return false;
     }).map(number => parseFloat(number));
 
     // Get the sum of numbers in array
