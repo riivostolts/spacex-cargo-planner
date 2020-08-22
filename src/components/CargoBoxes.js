@@ -5,9 +5,7 @@ import { saveShipmentChanges } from '../actions';
 
 const CargoBoxes = ({ boxes: originalBoxes, shipmentId }) => {
   const dispatch = useDispatch();
-  // Separate values by space
-  // const boxes = originalBoxes.split(',').join(', ');
-  const boxes = originalBoxes ? originalBoxes : '';
+  const boxes = originalBoxes ? originalBoxes.split(',').join(', ') : '';
   const [ cargoBoxes, setCargoBoxes ] = useState(boxes);
   const { id } = useSelector(state => state.shipments.selectedShipment);
 
@@ -16,8 +14,12 @@ const CargoBoxes = ({ boxes: originalBoxes, shipmentId }) => {
   if (cargoBoxes) {
 
     const unitsPerBay = 10;
-    // Make the boxes string into an array and convert strings into numbers
-    const boxesArr = cargoBoxes.split(',').map(number => number && parseFloat(number));
+    // Make the boxes string into an array and convert strings into numbers. Also remove NaN value if exists
+    const boxesArr = cargoBoxes.split(',').filter(number => {
+      if (!isNaN(parseFloat(number))) {
+        return true;
+      }
+    }).map(number => parseFloat(number));
 
     // Get the sum of numbers in array
     const maximumNumberOfBoxes = boxesArr.reduce((sum, value) => sum + value, 0);
@@ -37,17 +39,13 @@ const CargoBoxes = ({ boxes: originalBoxes, shipmentId }) => {
     }
   }
 
-  const handleInputChange = (e) => {
-    setCargoBoxes(e.target.value);
-  }
-
   return (
     <div className="shipment__cargo">
       <p>Number of required cargo bays <strong>{ numberOfBaysNeeded ? numberOfBaysNeeded : '0' }</strong></p>
       <Form>
         <Form.Field>
           <label>Cargo boxes</label>
-          <input value={cargoBoxes} onChange={handleInputChange} onBlur={handleShipmentChanges} />
+          <input type="text" value={cargoBoxes} onChange={(e) => setCargoBoxes(e.target.value)} onBlur={handleShipmentChanges} />
         </Form.Field>
       </Form>
     </div>

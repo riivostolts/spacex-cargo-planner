@@ -8,6 +8,21 @@
   &__brand {
     font-size: 2rem;
     font-weight: bold;
-    color: #333;
+
+    a {
+      color: #333;
+
+      &:hover {
+        color: #333;
+      }
+    }
+  }
+
+  &__search {
+    width: 30rem;
+
+    .input {
+      width: 100%;
+    }
   }
 }

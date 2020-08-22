@@ -31,6 +31,7 @@ const Filter = () => {
         onSearchChange={handleInputChange}
         value={filterValue}
         showNoResults={false}
+        placeholder='Search companies by name'
       />
     </div>
   )
