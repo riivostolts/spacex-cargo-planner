@@ -9,12 +9,15 @@ import './Header.scss';
 const Header = () => {
   const dispatch = useDispatch();
   const state = useSelector(state => state);
-  const { id: selectedShipmentId } = state.shipments.selectedShipment;
 
   const handleLoad = () => {
     dispatch(loadAllShipments());
-    // This is for overriding the cargo boxes value for the selected shipment
-    dispatch(loadShipmentDetails(selectedShipmentId));
+
+    if (state.shipments.selectedShipment.id) {
+      // This is for overriding the cargo boxes value for the selected shipment
+      const { id: selectedShipmentId } = state.shipments.selectedShipment;
+      dispatch(loadShipmentDetails(selectedShipmentId));
+    }
   }
 
   // Saves the state to session storage
