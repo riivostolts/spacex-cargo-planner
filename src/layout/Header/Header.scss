@@ -5,9 +5,18 @@
   align-items: center;
   box-shadow: 0 -12px 22px rgba(82, 87, 104, .05), 0 12px 22px rgba(82, 87, 104, .1);
 
+  @media screen and (max-width: 768px) {
+    flex-direction: column;
+    height: 140px;
+  }
+
   &__brand {
     font-size: 2rem;
     font-weight: bold;
+
+    @media screen and (max-width: 768px) {
+      font-size: 1.5rem;
+    }
 
     a {
       color: #333;
@@ -20,6 +29,14 @@
 
   &__search {
     width: 30rem;
+
+    @media screen and (max-width: 1200px) {
+      width: 20rem;
+    }
+
+    @media screen and (max-width: 768px) {
+      width: auto;
+    }
 
     .input {
       width: 100%;

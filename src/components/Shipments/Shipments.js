@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux';
 import slugify from '../../utils/slugify';
 import './Shipments.scss';
 
-const Shipments = ({ shipments: { shipments } }) => {
+const Shipments = ({ shipments: { shipments }, setShowSidebar }) => {
   const { filterValue } = useSelector(state => state.shipments);
 
   if (!shipments.length) return <div>Please press load button to load shipments</div>
@@ -18,7 +18,7 @@ const Shipments = ({ shipments: { shipments } }) => {
       <ul className="shipment-list">
         {
           filteredShipments.map(({ name, id }) => {
-            return <li key={id} className="shipment-list__item"><NavLink to={`/company/${slugify(id)}`}>{name}</NavLink></li>
+            return <li onClick={() => setShowSidebar(false)} key={id} className="shipment-list__item"><NavLink to={`/company/${slugify(id)}`}>{name}</NavLink></li>
           })
         }
       </ul>

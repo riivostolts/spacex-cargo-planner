@@ -24,7 +24,31 @@ code {
   max-height: 75vh;
   margin-top: 5rem;
 
+  @media screen and (max-width: 1200px) {
+    max-width: 90vw;
+  }
+
+  @media screen and (max-width: 768px) {
+    height: 90vh;
+    max-height: none;
+  }
+
   &__content {
     display: flex;
+    position: relative;
+
+    @media screen and (max-width: 768px) {
+      margin-top: 30px;
+    }
+  }
+}
+
+.show-shipments {
+  position: absolute;
+  left: 2rem;
+  top: 1rem;
+
+  @media screen and (min-width: 769px) {
+    display: none !important;
   }
 }

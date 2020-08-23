@@ -7,7 +7,20 @@
   border-right: 1px solid rgba($gray-main, .07);
   min-height: 50vh;
   max-height: calc(75vh - 10rem);
-  // background-color: #495057;
+
+  @media screen and (max-width: 900px) {
+    flex: .3;
+  }
+
+  @media screen and (max-width: 768px) {
+    flex: 1;
+    display: none;
+    margin-top: 50px;
+  }
+
+  &--show {
+    display: block;
+  }
 
   &--scroll {
     overflow-y: scroll;

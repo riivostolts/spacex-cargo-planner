@@ -1,4 +1,19 @@
 .main {
   flex: .8;
   padding: 1rem 2rem;
+
+  @media screen and (max-width: 900px) {
+    flex: .7;
+  }
+
+  @media screen and (max-width: 768px) {
+    flex: 1;
+    margin-top: 50px;
+  }
+
+  &--hide {
+    @media screen and (max-width: 768px) {
+      display: none;
+    }
+  }
 }
